@@ -1,0 +1,13 @@
+.banner {
+  width: 100%;
+  height: 400px;
+  background-color: var(--lightGrey);
+}
+.banner__image {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: 400px 0;
+  width: 100%;
+  height: 600px;
+}
