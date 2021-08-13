@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import banner from '../../assets/images/background.jpg';
 
@@ -15,9 +16,9 @@ const Home = () => {
   }, [])
 
   const getApodData = async () => {
-    const apod_response = await axios.get(APOD_URL);
-    const apod_data = apod_response.data;
-    setApodData(apod_data);
+    // const apod_response = await axios.get(APOD_URL);
+    // const apod_data = apod_response.data;
+    // setApodData(apod_data);
   }
 
   return (
@@ -29,13 +30,21 @@ const Home = () => {
             Image
           </div>
           <div className="col-6">
-            <button>Get the weather of Mars</button>
+            <div className="banner-left">
+              <div className="banner-info">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+              </div>
+              <div className="banner-btns">
+                <Link to="/mars-weather" className="link-primary">Weather of Mars</Link>
+                <Link to="/search-images" className="link-primary">Search Images</Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* PictureOfTheDay */}
-      <section className="picture">
+      {/* <section className="picture">
         <div className="container">
           {loading ? (
             <div>Loading...</div>
@@ -52,7 +61,7 @@ const Home = () => {
           </div>
           )}
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

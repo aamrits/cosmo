@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <p>Developed & Designed by Amrit.</p> 
-      <p>cosmo.com © {new Date().getFullYear()}</p>
+      <p>Cosmo © {new Date().getFullYear()}</p>
     </footer>
   )
 }
