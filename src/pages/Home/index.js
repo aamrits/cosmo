@@ -3,6 +3,7 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import banner from '../../assets/images/background.jpg';
+import Button from '../../components/Button';
 
 const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`;
 
@@ -32,11 +33,15 @@ const Home = () => {
           <div className="col-6">
             <div className="banner-left">
               <div className="banner-info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <Link to="/" className="link-main">Ut enim</Link> ad minim veniam, quis nostrud</p>
               </div>
               <div className="banner-btns">
-                <Link to="/mars-weather" className="link-primary">Weather of Mars</Link>
-                <Link to="/search-images" className="link-primary">Search Images</Link>
+                <Link to="/mars-weather">
+                  <Button text='Weather of mars' />
+                </Link>
+                <Link to="/search-images">
+                  <Button text='Search Images' />
+                </Link>
               </div>
             </div>
           </div>

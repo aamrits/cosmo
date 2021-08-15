@@ -1,0 +1,15 @@
+.btn-custom {
+  color: var(--orange);
+  background-color: transparent;
+  border: 1px solid var(--orange);
+  border-radius: 4px;
+  padding: 1.25rem 1.75rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
+  &:hover {
+    background-color: var(--lightWhite);
+    outline: none;
+  }
+}
