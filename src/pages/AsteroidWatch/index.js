@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import './styles.scss';
-import MainBody from '../../components/MainBody';
+import { MainBody } from '../../components';
 
 const TODAY = moment().format("YYYY-MM-DD");
 

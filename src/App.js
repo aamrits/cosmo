@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { Header, Footer } from './components';
 import SearchImages from './pages/SearchImages';
 import AsteroidWatch from './pages/AsteroidWatch';
 

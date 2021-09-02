@@ -3,8 +3,7 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import banner from '../../assets/images/background.jpg';
-import Button from '../../components/Button';
-import RibbonContainer from '../../components/RibbonContainer';
+import { Button, RibbonContainer } from '../../components';
 
 const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`;
 
