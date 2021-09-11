@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import Home from '../../pages/Home';
+import { Link } from 'react-router-dom';
 import { ToggleButton } from '../../components';
 
 const Header = () => {

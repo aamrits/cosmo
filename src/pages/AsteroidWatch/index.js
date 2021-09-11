@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import moment from 'moment';
 import './styles.scss';
+import moment from 'moment';
+import { getNeoService } from '../../services/getNeoService';
 import { MainBody } from '../../components';
 
 const TODAY = moment().format("YYYY-MM-DD");
-
-const NEO_URL = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${TODAY}&end_date=${TODAY}&api_key=${process.env.REACT_APP_API_KEY}`;
 
 const AsteroidWatch = () => {
   const [loading,setLoading] = useState(true);
@@ -19,8 +17,7 @@ const AsteroidWatch = () => {
   }, [])
 
   const getNeoData = async () => {
-    const neo_response = await axios.get(NEO_URL);
-    const neo_data = neo_response.data;
+    const neo_data = await getNeoService(TODAY);
     setNeoData(neo_data);
   
     const TOTAL_ASTEROIDS = neo_data.near_earth_objects[TODAY];
@@ -55,7 +52,7 @@ const AsteroidWatch = () => {
           asteroidsData.map(item => (
             <div key={ item.id } className="item">
               <div className="item-block">
-                <img src="https://via.placeholder.com/100" className="img-fluid" />
+                <img src="https://via.placeholder.com/100" alt="" className="img-fluid" />
                 <p className="img-title">House size</p>
               </div>
               <div className="item-block">

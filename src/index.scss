@@ -9,6 +9,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #121212;
   color: #F5F5F5;
+  // overflow: auto;
+  line-height: 1.5;
+  counter-reset: section;
 }
 
 code {
@@ -26,6 +29,28 @@ code {
   --white: #F5F5F5;
   --black: #121212;
   --lightWhite: rgba(255, 255, 255,0.1);
+}
+
+/***
+CUSTOM SCROLLBAR
+*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFDD71;
+  border-radius: 20px;
+  border: 5px solid #FFDD71;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #C77C02;
 }
 
 .link-main {

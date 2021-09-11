@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { getAPODService } from '../../services/getAPODService';
 import banner from '../../assets/images/background.jpg';
 import { Button, RibbonContainer } from '../../components';
-
-const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`;
 
 const Home = () => {
   const [loading,setLoading] = useState(true);
@@ -17,9 +15,8 @@ const Home = () => {
   }, [])
 
   const getApodData = async () => {
-    // const apod_response = await axios.get(APOD_URL);
-    // const apod_data = apod_response.data;
-    // setApodData(apod_data);
+    const apod_data = await getAPODService();
+    setApodData(apod_data);
   }
 
   return (
@@ -50,7 +47,7 @@ const Home = () => {
       </section>
 
       {/* PictureOfTheDay */}
-      {/* <section className="picture">
+      <section className="picture">
         <div className="container">
           {loading ? (
             <div>Loading...</div>
@@ -67,7 +64,7 @@ const Home = () => {
           </div>
           )}
         </div>
-      </section> */}
+      </section>
     </>
   )
 }
