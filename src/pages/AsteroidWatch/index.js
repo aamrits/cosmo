@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import moment from 'moment';
 import { getNeoService } from '../../services/getNeoService';
-import { MainBody } from '../../components';
+import { Container } from '../../components';
 
 const TODAY = moment().format("YYYY-MM-DD");
 
@@ -28,51 +28,49 @@ const AsteroidWatch = () => {
   }
 
   return (
-    <MainBody>
-      <div className="col-12">
-        <div className="header-container">
-          <h1 className="page-title">Asteroid Watch</h1>
-          <div className="header-right">
-            <p className="m-0">Today's Count of Asteroids passing near Earth's Orbit :  
-              <span>{loading ? '' : neoData.element_count }</span>
-            </p>
+    <>
+      <Container>
+        <div className="col-md-12">
+          <div className="title my-4">
+            Asteroid watch
           </div>
         </div>
-      </div>
+      </Container>
 
-      <div className="col-12">
-        
-      </div>
-
-      <div className="col-12">
-        <p>Next Asteroids passing near our planet</p>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          asteroidsData.map(item => (
-            <div key={ item.id } className="item">
-              <div className="item-block">
-                <img src="https://via.placeholder.com/100" alt="" className="img-fluid" />
-                <p className="img-title">House size</p>
+      <Container>
+        <div className="col-12 scroll-container card-container">
+          <h3 className="heading3">
+            Asteroids passing near Earth's Orbit Today:
+            <span>{loading ? '' : neoData.element_count }</span>
+          </h3>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            asteroidsData.map(item => (
+              <div key={ item.id } className="item">
+                <div className="item-block">
+                  <h3>Name</h3>
+                  <p>{ item.name }</p>
+                </div>
+                <div className="item-block">
+                  <h3>Approximate Size</h3>
+                  <p>{ item.estimated_diameter.miles.estimated_diameter_min.toFixed(3) } - { item.estimated_diameter.miles.estimated_diameter_max.toFixed(3) } Miles</p>
+                </div>
+                <div className="item-block">
+                  <h3>Closest Approach to Earth</h3>
+                  <p>1040000 Miles</p>
+                  <p>{ moment().format("ll") }</p>
+                </div>
+                <div className="item-block">
+                  <h3>Potentially Hazardous</h3>
+                  <p>{ setAsteroidsData.is_potentially_hazardous_asteroid ? 'YES' : 'NO' }</p>
+                </div>
               </div>
-              <div className="item-block">
-                <h3>Name</h3>
-                <p>{ item.name }</p>
-                <h3>Approximate Size</h3>
-                <p>{ item.estimated_diameter.miles.estimated_diameter_min.toFixed(3) } - { item.estimated_diameter.miles.estimated_diameter_max.toFixed(3) } Miles</p>
-              </div>
-              <div className="item-block">
-                <h3>Closest Approach to Earth</h3>
-                <p>1040000 Miles | { moment().format("ll") }</p>
-                <h3>Potentially Hazardous</h3>
-                <p>{ setAsteroidsData.is_potentially_hazardous_asteroid ? 'YES' : 'NO' }</p>
-              </div>
-              
-            </div>
-          ))
-        )}
-      </div>
-    </MainBody>
+            ))
+          )}
+        </div>
+      </Container>
+    </>
   )
 }
 
