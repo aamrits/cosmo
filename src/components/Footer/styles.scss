@@ -1,8 +1,11 @@
 footer {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
+  position: fixed;
+  bottom: 0;
   p {
     margin-bottom: 0.2rem;
+    line-height: 24px;
   }
 }

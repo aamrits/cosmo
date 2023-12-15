@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import { Header, Footer } from './components';
 import SearchImages from './pages/SearchImages';
 import AsteroidWatch from './pages/AsteroidWatch';
-
+import Apod from './pages/Apod';
 
 function App() {
   return (
@@ -27,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/mars-weather">
             <h1>Mars-weather</h1>
+          </Route>
+          <Route exact path="/astronomy-picture-of-the-day">
+            <Apod />
           </Route>
         </Switch>
 

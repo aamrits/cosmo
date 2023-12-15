@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MainBody = (props) => {
+const Container = (props) => {
   return (
     <div className="container">
       <div className="row">
@@ -10,4 +10,4 @@ const MainBody = (props) => {
   )
 }
 
-export default MainBody
+export default Container

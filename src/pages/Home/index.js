@@ -1,68 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import { getAPODService } from '../../services/getAPODService';
-import banner from '../../assets/images/background.jpg';
 import { Button, RibbonContainer } from '../../components';
 
 const Home = () => {
-  const [loading,setLoading] = useState(true);
-  const [apodData, setApodData] = useState([]);
-
-  useEffect(() => {
-    // getApodData();
-    setLoading(false);
-  }, [])
-
-  const getApodData = async () => {
-    const apod_data = await getAPODService();
-    setApodData(apod_data);
-  }
-  
   return (
     <>
-      <RibbonContainer text="Fun Facts" />
-      <section className="banner">
-        {/* <img src={banner} alt="" className="img-fluid banner__image" /> */}
-        <div className="row g-0">
-          <div className="col-6">
-            Image
-          </div>
-          <div className="col-6">
-            <div className="banner-left">
-              <div className="banner-info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <Link to="/" className="link-main">Ut enim</Link> ad minim veniam, quis nostrud</p>
-              </div>
-              <div className="banner-btns">
-                <Link to="/mars-weather">
-                  <Button text='Weather of mars' />
-                </Link>
-                <Link to="/search-images">
-                  <Button text='Search Images' />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PictureOfTheDay */}
-      <section className="picture">
+      {/* <RibbonContainer text="Fun Facts" /> */}
+      <section className="home">
         <div className="container">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
           <div className="row">
-            <div className="col-4">
-              <img src={apodData.url} alt={apodData.title} className="img-fluid" />
+            <div className="col-6">
+
             </div>
-            <div className="col-8">
-              <h3>{apodData.title}</h3>
-              <p>{apodData.copyright ? apodData.copyright : ''} {apodData.date}</p>
-              <p className="explanation">{apodData.explanation}</p>
+            <div className="col-6 d-flex justify-content-end">
+              <div className="banner-left">
+                <div className="banner-info">
+                  <p>Checkout out the number of asteroids hitting Planet Earth daily. Fortunately, none are big enough to cause any serious damage. They burn harmlessly in our atmosphere.</p>
+                </div>
+                <div className="banner-btns">
+                  <Link to="/asteroid-watch">
+                    <Button text='Asteroid Watch' />
+                  </Link>
+                  <Link to="/mars-weather">
+                    <Button text='Weather of mars' />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-          )}
+          <div className="section-gap"></div>
+          <div className="row align-items-end">
+            <div className="col-6">
+              <p className="home-title">welcome to my website</p>
+              <h2 className="heading2">Cosmo</h2>
+              <p>Checkout the <Link to="/astronomy-picture-of-the-day" className="link-main">Astronomy Picture of the day</Link></p>
+            </div>
+            <div className="col-6 d-flex justify-content-end">
+              <Link to="/search-images" className="home-explore">Explore</Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

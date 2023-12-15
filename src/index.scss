@@ -1,22 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Bellefair&display=swap');
+
+/* ==================================================================
+General Styles
+================================================================== */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121212;
-  color: #F5F5F5;
-  // overflow: auto;
+  overflow: auto;
   line-height: 1.5;
   counter-reset: section;
+  overflow: auto;
+  line-height: 1.5;
+  counter-reset: section;  
+  background-image: url('./assets/images/home/background-home-desktop.jpg');
+  background-size: cover;
+  min-height: 100vh;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body .dark {
+  color: var(--white);
 }
 
 .dark {
@@ -29,28 +34,127 @@ code {
   --white: #F5F5F5;
   --black: #121212;
   --lightWhite: rgba(255, 255, 255,0.1);
+  --lightBlack: rgba(17, 25, 40, 0.75);
+  --darkBlack: rgba(0, 0, 0, 0.8);
 }
 
-/***
-CUSTOM SCROLLBAR
-*/
-::-webkit-scrollbar {
-  width: 5px;
+ul,
+ol {
+  padding: 0;
+  margin-top: 1rem;
 }
 
-::-webkit-scrollbar-track {
-  background-color: #000000;
+.section-gap {
+  margin: 2rem 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #FFDD71;
-  border-radius: 20px;
-  border: 5px solid #FFDD71;
-  background-clip: content-box;
+ p {
+   line-height: 30px;
+   letter-spacing: 1px;
+ }
+
+h2.heading2 {
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-family: 'Bellefair', serif;
+  margin-top: 2rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #C77C02;
+h3.heading3 {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-family: 'Bellefair', serif;
+  span {
+    font-size: 38px;
+    color: var(--orange);
+    padding: 0 12px;
+    letter-spacing: 4px;
+  }
+}
+
+.home-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.title {
+  font-family: 'Bellefair', serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  letter-spacing: 2.35px;
+}
+
+.card-container {
+  padding: 1.25rem 1.75rem;
+  backdrop-filter: blur(1px) saturate(200%);
+  -webkit-backdrop-filter: blur(1px) saturate(200%);
+  background-color: var(--lightBlack);
+  border-radius: 12px;
+  border: 1px solid var(--darkBlack);
+}
+
+.scroll-container {
+  height: calc(100vh - 19rem);
+  overflow-y: auto;
+}
+
+/* ==================================================================
+Navbar Styles
+================================================================== */
+.navbar {
+  padding: 2rem 0;
+}
+
+.navbar-light .navbar-brand {
+  color: var(--white);
+  padding-left: 45px;
+  padding-top: 15px;
+}
+
+a.navbar-brand::after {
+  content: '';
+  width: 32%;
+  background: var(--white);
+  height: 1px;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 50px;
+}
+
+.navbar-nav {
+  background: rgba(255,255,255,0.2);
+  width: 65%;
+  min-height: 68px;
+  align-items: center;
+  margin: 0;
+  padding-left: 50px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px 15px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  border-bottom: 3px solid var(--white);
+  color: var(--white);
+}
+
+.navbar-light .navbar-nav .nav-link:focus {
+  color: var(--white);
+}
+
+.navbar-light .navbar-nav .nav-link span {
+  font-weight: bold;
+  padding-right: 4px;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--white);
+  border-bottom: 3px solid var(--white);
 }
 
 .link-main {
@@ -80,43 +184,155 @@ CUSTOM SCROLLBAR
   }
 }
 
-.header-container {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  min-height: 60px;
-  margin: 20px 0;
-  .page-title {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: var(--orange);
+/* ==================================================================
+Custom Scrollbar
+================================================================== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFDD71;
+  border-radius: 20px;
+  border: 5px solid #FFDD71;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #C77C02;
+}
+
+
+/* ==================================================================
+Media Queries
+================================================================== */
+@media (max-width: 575.98px) {
+  body {
+    background-image: url('./assets/images/home/background-home-mobile.jpg') !important;
   }
-  .header-right {
-    span {
-      color: var(--orange);
-      font-size: 24px;
-      font-weight: 600;
-      margin-left: 10px;
-    }
+
+  .navbar-expand-sm .navbar-toggler {
+    width: 10% !important
   }
 }
 
-.m-0 {
-  margin: 0;
+@media (max-width: 767.98px) {
+  .navbar-nav {
+    display: none;
+  }
+
+  .navbar-expand-sm .navbar-toggler {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+  
+  .navbar-expand-sm .navbar-collapse {
+    display: block !important;
+  }
 }
 
-@media screen and (max-width: 768px) {
-  .header-container {
-    display: block;
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    width: 75%;
   }
-  .item {
-    display: block;
-    .item-block {
-      width: 100%;
-      img {
-        display: flex;
-        margin: auto
-      }
-    }
+
+  .tabs .tab-content .tab-pane {
+    text-align: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .destination-meta {
+    justify-content: center;
+  }
+
+  .img-custom {
+    display: flex;
+    margin: auto;
   }
 }
+
+@media (max-width: 1199.98px) {
+  body {
+    background-image: url('./assets/images/home/background-home-tablet.jpg');
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  a.navbar-brand::after {
+    display: none;
+  }
+
+  .navbar-light .navbar-nav .nav-link span {
+    display: none;
+  }
+
+  .home {
+    display: block !important;
+    padding-top: 60px;
+    padding-bottom: 100px !important;
+  }
+
+  .home-info {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .home-title p {
+    margin-bottom: 3rem;
+  }
+
+  a.home-explore {
+    margin: 100px auto;
+  }
+}
+
+// .header-container {
+//   display: flex;
+//   align-items: flex-end;
+//   justify-content: space-between;
+//   min-height: 60px;
+//   margin: 20px 0;
+//   .page-title {
+//     font-size: 24px;
+//     text-transform: uppercase;
+//     color: var(--orange);
+//   }
+//   .header-right {
+//     span {
+//       color: var(--orange);
+//       font-size: 24px;
+//       font-weight: 600;
+//       margin-left: 10px;
+//     }
+//   }
+// }
+
+// .m-0 {
+//   margin: 0;
+// }
+
+// @media screen and (max-width: 768px) {
+//   .header-container {
+//     display: block;
+//   }
+//   .item {
+//     display: block;
+//     .item-block {
+//       width: 100%;
+//       img {
+//         display: flex;
+//         margin: auto
+//       }
+//     }
+//   }
+// }
