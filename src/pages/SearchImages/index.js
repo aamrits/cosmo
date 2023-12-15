@@ -42,14 +42,14 @@ const SearchImages = () => {
       
       {!loading ? imagesData.map((image) => (
         <div className="col-md-4 mb-2 search-images" key={image.data[0].nasa_id}>
-          <img className="img-fluid" src={image.links[0].href} alt={image.data[0].description_508} />
+          <img className="img-fluid" src={image.links && image.links[0].href} alt={image.data && image.data[0].description} />
           <div className="image-download">
-            <a href={image.links[0].href.replace('thumb', 'orig')} target="_blank" rel="noreferrer">
+            <a href={image.links && image.links[0].href.replace('thumb', 'orig')} target="_blank" rel="noreferrer">
               Download
             </a>
           </div>
           <div className="image-title"> 
-            <p>{image.data[0].description_508}</p>
+            <p>{image.data && image.data[0].description}</p>
           </div>
         </div>
       )) : ''}

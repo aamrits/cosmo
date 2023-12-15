@@ -10,7 +10,7 @@ const Home = () => {
   const [apodData, setApodData] = useState([]);
 
   useEffect(() => {
-    getApodData();
+    // getApodData();
     setLoading(false);
   }, [])
 
@@ -18,7 +18,7 @@ const Home = () => {
     const apod_data = await getAPODService();
     setApodData(apod_data);
   }
-
+  
   return (
     <>
       <RibbonContainer text="Fun Facts" />
